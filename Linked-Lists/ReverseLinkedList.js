@@ -12,4 +12,15 @@ function ListNode(val, next) {
   this.next = next === undefined ? null : next;
 }
 
-function reverseList(head) {}
+function reverseList(head) {
+  let newHead = null;
+
+  while (head) {
+    let nextNode = head.next;
+    head.next = newHead;
+    newHead = head;
+    head = nextNode;
+  }
+
+  return newHead;
+}
