@@ -28,6 +28,12 @@ class BinaryTree {
   }
 }
 
+/*
+Time Complexity: O(n),
+Space Complexity: O(n),
+where n is the number of nodes in the binary tree
+*/
+
 function branchSums(root) {
   const sums = [];
   calculateSum(root, sums, 0);
