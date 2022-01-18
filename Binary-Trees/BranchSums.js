@@ -38,10 +38,22 @@ function calculateSum(node, sums, sum) {
   sum += node.value;
   if (!node.left && !node.right) {
     sums.push(sum);
-    return sums;
   } else {
     if (node.left) calculateSum(node.left, sums, sum);
     if (node.right) calculateSum(node.right, sums, sum);
+  }
+}
+
+// Can also do this without helper function if we're allowed to add parameters to original branchSums function:
+
+function branchSums2(root, sums = [], sum = 0) {
+  sum += root.value;
+  if (!root.left && !root.right) {
+    sums.push(sum);
+    return sums;
+  } else {
+    if (root.left) branchSums2(root.left, sums, sum);
+    if (root.right) branchSums2(root.right, sums, sum);
   }
   return sums;
 }
